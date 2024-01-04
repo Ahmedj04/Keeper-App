@@ -43,6 +43,7 @@ footer p {
   box-shadow: 0 2px 5px #ccc;
   padding: 10px;
   width: 240px;
+  height: 130px;
   margin: 16px;
   float: left;
 }
@@ -78,6 +79,7 @@ form.create-note {
   padding: 15px;
   border-radius: 7px;
   box-shadow: 0 1px 5px rgb(138, 137, 137);
+
 }
 form.create-note input,
 form.create-note textarea {
@@ -103,3 +105,62 @@ form.create-note button {
   cursor: pointer;
   outline: none;
 }
+.overlay-background{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* semi-transparent dark background */
+  z-index: 99;
+}
+.edit-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+form.edit-note {
+  position: absolute;
+  width: 480px;
+  /* margin: 30px auto 20px auto; */
+  /* margin-left: 380px; */
+  background: #fff;
+  padding: 15px;
+  border-radius: 7px;
+  box-shadow: 0 1px 5px rgb(138, 137, 137);
+  z-index: 100;
+
+}
+form.edit-note input,
+form.edit-note textarea {
+  width: 100%;
+  border: none;
+  padding: 4px;
+  outline: none;
+  font-size: 1.2em;
+  font-family: inherit;
+  resize: none;
+}
+.edit-options{
+  display: flex;
+  justify-content: right;
+}
+
+.pin{
+  padding-right: 15px;
+  cursor: pointer;
+}
+.close{
+  padding-right: 15px;
+  cursor: pointer;
+}
+.delete{
+  cursor: pointer;
+}
+
