@@ -71,9 +71,10 @@ function App() {
         </div>
       </div>}
 
+      {pinnedNotes.length > 0 && <hr />}
 
-      {notes.length > 0 && <div>
-        <h4>UnPinned notes</h4>
+      {notes.length > 0 && <div style={{ "padding-top": "10px" }}>
+        <h4>{pinnedNotes.length > 0 ? "Others" : " Notes"}</h4>
         <div className="grid-view">
           {[...notes]
             .map((noteItem, index) => {
