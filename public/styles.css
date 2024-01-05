@@ -126,6 +126,7 @@ form.create-note button {
   background: rgba(0, 0, 0, 0.5); /* semi-transparent dark background */
   z-index: 99;
 }
+
 .edit-container {
   position: fixed;
   top: 50%;

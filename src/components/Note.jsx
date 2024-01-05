@@ -2,7 +2,6 @@ import React from "react";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { BsFillPinFill } from "react-icons/bs";
 
-
 function Note(props) {
 
   function handleClick() {

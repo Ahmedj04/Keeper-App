@@ -3,6 +3,9 @@ import AddIcon from "@material-ui/icons/Add";
 import { Zoom } from "@material-ui/core";
 import { Fab } from "@material-ui/core";
 
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 function CreateArea(props) {
   const [note, setNote] = useState({
     title: "",
@@ -28,14 +31,19 @@ function CreateArea(props) {
   }
 
   function submitNote(event) {
-    props.onAdd(note);
-    setNote({
-      title: "",
-      content: ""
-    });
-    event.preventDefault();
+    if (note.title === "" && note.content === "") {
+      // alert("Please enter a title or a content")
+      toast.error("Please enter a title or a content", { autoClose: 1000 })
+    } else {
+      props.onAdd(note);
+      setNote({
+        title: "",
+        content: ""
+      });
+      event.preventDefault();
+      setExpanded(false)
+    }
 
-    setExpanded(false)
   }
 
   return (
