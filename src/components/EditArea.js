@@ -38,22 +38,28 @@ function EditArea(props) {
                     <div className="edit-options">
                         <i className="pin"
                             onClick={() => {
+                                // Determine if the note is currently pinned by checking if it exists in pinnedNotes, return true or false
                                 setIsPinned(props.pinnedNotes.some(
                                     (pinnedNote) => pinnedNote === props.noteItem
                                 ))
 
+                                // Create an updated array of pinnedNotes based on the current pinned status
                                 const updatedPinnedNotes = isPinned
                                     ? props.pinnedNotes.filter((note) => note !== props.noteItem)
                                     : [...props.pinnedNotes, props.noteItem];
 
+                                // Update the pinnedNotes state with the newly calculated array
                                 props.setPinnedNotes(updatedPinnedNotes);
 
+                                // Create an updated array of all notes based on the current pinned status
                                 const updatedNotes = isPinned
                                     ? [...props.notes, props.noteItem]
                                     : props.notes.filter((note) => note !== props.noteItem);
 
+                                // Update the notes state with the newly calculated array
                                 props.setNotes(updatedNotes);
 
+                                // Reset the edit state to indicate that no note is currently being edited
                                 props.setEditNote(() => ({ edit: false, idx: undefined }));
 
 
