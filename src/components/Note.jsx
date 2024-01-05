@@ -1,5 +1,7 @@
 import React from "react";
 import DeleteIcon from "@material-ui/icons/Delete";
+import { BsFillPinFill } from "react-icons/bs";
+
 
 function Note(props) {
 
@@ -18,20 +20,25 @@ function Note(props) {
   const truncatedContent = truncateText(props.content, 20);
 
   return (
+
     <div className="note"
       onClick={() => {
-        console.log(props.id)
         props.setEditNote(() => {
           return {
             edit: true,
             idx: props.id,
             value: props.value
           }
-        }
-        )
+        })
       }
       }>
-      <h1>{truncatedTitle}</h1>
+      {props.value === "pinned"
+        ? <div >
+          <h1>{truncatedTitle}</h1>
+          <i><BsFillPinFill /></i>
+        </div>
+        : <h1>{truncatedTitle}</h1>}
+
       <p>{truncatedContent}</p>
       <button onClick={handleClick}>
         <DeleteIcon />

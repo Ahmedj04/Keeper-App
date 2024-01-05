@@ -42,11 +42,18 @@ footer p {
   border-radius: 7px;
   box-shadow: 0 2px 5px #ccc;
   padding: 10px;
-  width: 240px;
+  width: 200px;
   height: 130px;
   margin: 16px;
-  float: left;
+  /* float: left; */
 }
+.grid-view {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* Creates 6 equal-width columns */
+  gap: 8px; /* Adjust the gap between columns and rows as needed */
+}
+
+
 .note h1 {
   font-size: 1.1em;
   margin-bottom: 6px;

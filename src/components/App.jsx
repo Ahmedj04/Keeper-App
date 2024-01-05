@@ -35,66 +35,75 @@ function App() {
       <Header />
 
       <CreateArea onAdd={addNote} />
+      {pinnedNotes.length > 0 && <div>
+        <h4>Pinned Notes</h4>
+        <div className="grid-view">
+          {pinnedNotes.length > 0 && [...pinnedNotes].map((noteItem, index) => {
+            return (
+              editNote.edit === true && editNote.idx === index && editNote.value === "pinned" ?
+                <EditArea
+                  key={index}
+                  id={index}
+                  editNote={editNote}
+                  setEditNote={setEditNote}
+                  noteItem={noteItem}
+                  notes={notes}
+                  setNotes={setNotes}
+                  onDelete={deleteNote}
+                  pinnedNotes={pinnedNotes}
+                  setPinnedNotes={setPinnedNotes}
 
-      {pinnedNotes.length > 0 && [...pinnedNotes].reverse().map((noteItem, index) => {
-        return (
-          editNote.edit === true && editNote.idx === index && editNote.value === "pinned" ?
-            <EditArea
-              key={index}
-              id={index}
-              editNote={editNote}
-              setEditNote={setEditNote}
-              noteItem={noteItem}
-              notes={notes}
-              setNotes={setNotes}
-              onDelete={deleteNote}
-              pinnedNotes={pinnedNotes}
-              setPinnedNotes={setPinnedNotes}
-
-            />
-            :
-            <Note
-              key={index}
-              id={index}
-              title={noteItem.title}
-              content={noteItem.content}
-              onDelete={deleteNote}
-              setEditNote={setEditNote}
-              value="pinned"
-            />
-        );
-      })}
+                />
+                :
+                <Note
+                  key={index}
+                  id={index}
+                  title={noteItem.title}
+                  content={noteItem.content}
+                  onDelete={deleteNote}
+                  setEditNote={setEditNote}
+                  value="pinned"
+                />
+            );
+          })}
+        </div>
+      </div>}
 
 
-      {[...notes].reverse()
-        .map((noteItem, index) => {
-          return (
-            editNote.edit === true && editNote.idx === index && editNote.value === "unpinned" ?
-              <EditArea
-                key={index}
-                id={index}
-                editNote={editNote}
-                setEditNote={setEditNote}
-                noteItem={noteItem}
-                notes={notes}
-                setNotes={setNotes}
-                onDelete={deleteNote}
-                pinnedNotes={pinnedNotes}
-                setPinnedNotes={setPinnedNotes}
-              />
-              :
-              <Note
-                key={index}
-                id={index}
-                title={noteItem.title}
-                content={noteItem.content}
-                onDelete={deleteNote}
-                setEditNote={setEditNote}
-                value="unpinned"
-              />
-          );
-        }
-        )}
+      {notes.length > 0 && <div>
+        <h4>UnPinned notes</h4>
+        <div className="grid-view">
+          {[...notes]
+            .map((noteItem, index) => {
+              return (
+                editNote.edit === true && editNote.idx === index && editNote.value === "unpinned" ?
+                  <EditArea
+                    key={index}
+                    id={index}
+                    editNote={editNote}
+                    setEditNote={setEditNote}
+                    noteItem={noteItem}
+                    notes={notes}
+                    setNotes={setNotes}
+                    onDelete={deleteNote}
+                    pinnedNotes={pinnedNotes}
+                    setPinnedNotes={setPinnedNotes}
+                  />
+                  :
+                  <Note
+                    key={index}
+                    id={index}
+                    title={noteItem.title}
+                    content={noteItem.content}
+                    onDelete={deleteNote}
+                    setEditNote={setEditNote}
+                    value="unpinned"
+                  />
+              );
+            }
+            )}
+        </div>
+      </div>}
 
       <Footer />
     </div>
