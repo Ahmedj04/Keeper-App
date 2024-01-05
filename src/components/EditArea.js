@@ -46,14 +46,16 @@ function EditArea(props) {
                                 // Create an updated array of pinnedNotes based on the current pinned status
                                 const updatedPinnedNotes = isPinned
                                     ? props.pinnedNotes.filter((note) => note !== props.noteItem)
-                                    : [...props.pinnedNotes, props.noteItem];
+                                    : [props.noteItem, ...props.pinnedNotes];
+                                // : [...props.pinnedNotes, props.noteItem];
 
                                 // Update the pinnedNotes state with the newly calculated array
                                 props.setPinnedNotes(updatedPinnedNotes);
 
                                 // Create an updated array of all notes based on the current pinned status
                                 const updatedNotes = isPinned
-                                    ? [...props.notes, props.noteItem]
+                                    ? [props.noteItem, ...props.notes]
+                                    // ? [...props.notes, props.noteItem]
                                     : props.notes.filter((note) => note !== props.noteItem);
 
                                 // Update the notes state with the newly calculated array
