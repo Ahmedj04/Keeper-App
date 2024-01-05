@@ -37,6 +37,12 @@ footer {
 footer p {
   color: #ccc;
 }
+
+.grid-view {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* Creates 6 equal-width columns */
+  gap: 8px; /* Adjust the gap between columns and rows as needed */
+}
 .note {
   background: #fff;
   border-radius: 7px;
@@ -47,12 +53,11 @@ footer p {
   margin: 16px;
   /* float: left; */
 }
-.grid-view {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr); /* Creates 6 equal-width columns */
-  gap: 8px; /* Adjust the gap between columns and rows as needed */
-}
 
+.note-title-box{
+  display: flex;
+  justify-content: space-between;
+}
 
 .note h1 {
   font-size: 1.1em;

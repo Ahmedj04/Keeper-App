@@ -35,10 +35,11 @@ function App() {
       <Header />
 
       <CreateArea onAdd={addNote} />
+
       {pinnedNotes.length > 0 && <div>
         <h4>Pinned Notes</h4>
         <div className="grid-view">
-          {pinnedNotes.length > 0 && [...pinnedNotes].map((noteItem, index) => {
+          {[...pinnedNotes].map((noteItem, index) => {
             return (
               editNote.edit === true && editNote.idx === index && editNote.value === "pinned" ?
                 <EditArea

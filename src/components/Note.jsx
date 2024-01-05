@@ -33,7 +33,7 @@ function Note(props) {
       }
       }>
       {props.value === "pinned"
-        ? <div >
+        ? <div className="note-title-box">
           <h1>{truncatedTitle}</h1>
           <i><BsFillPinFill /></i>
         </div>
