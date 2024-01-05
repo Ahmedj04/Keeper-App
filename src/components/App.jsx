@@ -18,20 +18,21 @@ function App() {
     value: undefined
   });
 
-  // // Pagination state
-  // const itemsPerPage = 6;
-  // const [currentPage, setCurrentPage] = useState(1);
+  function addNote(newNote) {
+    setNotes((prevNotes) => {
+      // return [...prevNotes, newNote];
+      return [newNote, ...prevNotes];
+    });
+  }
 
-  // const indexOfLastNote = currentPage * itemsPerPage;
-  // const indexOfFirstNote = indexOfLastNote - itemsPerPage;
-  // const currentPinnedNotes = pinnedNotes.slice(indexOfFirstNote, indexOfLastNote);
-  // const currentNotes = notes.slice(indexOfFirstNote, indexOfLastNote);
+  function deleteNote(id, isPinned) {
 
+    const setNotesFunction = isPinned ? setPinnedNotes : setNotes;
 
-  // function handlePageChange(newPage) {
-  //   setCurrentPage(newPage);
-  // }
-
+    setNotesFunction((prevNotes) => {
+      return prevNotes.filter((noteItem, index) => index !== id);
+    });
+  }
 
   // Pagination state for pinned notes
   const itemsPerPagePinned = 6;
@@ -52,29 +53,12 @@ function App() {
   const currentUnpinnedNotes = notes.slice(indexOfFirstUnpinnedNote, indexOfLastUnpinnedNote);
 
 
-
   function handlePageChangePinned(newPage) {
     setCurrentPagePinned(newPage);
   }
 
   function handlePageChangeUnpinned(newPage) {
     setCurrentPageUnpinned(newPage);
-  }
-
-  function addNote(newNote) {
-    setNotes((prevNotes) => {
-      // return [...prevNotes, newNote];
-      return [newNote, ...prevNotes];
-    });
-  }
-
-  function deleteNote(id, isPinned) {
-
-    const setNotesFunction = isPinned ? setPinnedNotes : setNotes;
-
-    setNotesFunction((prevNotes) => {
-      return prevNotes.filter((noteItem, index) => index !== id);
-    });
   }
 
   return (
@@ -135,6 +119,7 @@ function App() {
             </div>
           )}
         </div>
+
       </div>}
 
       {pinnedNotes.length > 0 && <hr />}
@@ -193,27 +178,6 @@ function App() {
           )}
         </div>
       </div>}
-
-
-      {/* Pagination buttons */}
-      {/* <div>
-        {notes.length > itemsPerPage && (
-          <div>
-            <button
-              onClick={() => handlePageChange(currentPage - 1)}
-              disabled={currentPage === 1}
-            >
-              Prev
-            </button>
-            <button
-              onClick={() => handlePageChange(currentPage + 1)}
-              disabled={indexOfLastNote >= notes.length}
-            >
-              Next
-            </button>
-          </div>
-        )}
-      </div> */}
 
       <Footer />
 
