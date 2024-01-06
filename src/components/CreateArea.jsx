@@ -41,7 +41,9 @@ function CreateArea(props) {
         content: ""
       });
       event.preventDefault();
-      setExpanded(false)
+      setExpanded(false);
+      toast.success("Note added", { autoClose: 1000 })
+
     }
 
   }

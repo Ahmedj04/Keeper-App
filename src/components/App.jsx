@@ -5,7 +5,7 @@ import Note from "./Note";
 import CreateArea from "./CreateArea";
 import EditArea from "./EditArea";
 
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function App() {
@@ -32,6 +32,8 @@ function App() {
     setNotesFunction((prevNotes) => {
       return prevNotes.filter((noteItem, index) => index !== id);
     });
+    toast.error("Note deleted", { autoClose: 1000 })
+
   }
 
   // Pagination state for pinned notes
