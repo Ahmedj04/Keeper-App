@@ -42,6 +42,7 @@ footer p {
   display: grid;
   grid-template-columns: repeat(6, 1fr); /* Creates 6 equal-width columns */
   gap: 8px; /* Adjust the gap between columns and rows as needed */
+  overflow-x: scroll;
 }
 .note {
   background: #fff;
@@ -175,5 +176,19 @@ form.edit-note textarea {
 }
 .delete{
   cursor: pointer;
+}
+
+.btn-container{
+  width: 20%;
+  height: 50px;
+  margin:auto;
+  display: flex;
+  justify-content: end;
+}
+.pagination-btn{
+ width: 40%;
+  margin: auto;
+  padding: 5px 15px;
+  border-radius: 10px;
 }
 

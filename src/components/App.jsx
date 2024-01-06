@@ -103,14 +103,16 @@ function App() {
         {/* Pagination buttons for pinned notes */}
         <div>
           {pinnedNotes.length > itemsPerPagePinned && (
-            <div>
+            <div className="btn-container">
               <button
+                className="pagination-btn"
                 onClick={() => handlePageChangePinned(currentPagePinned - 1)}
                 disabled={currentPagePinned === 1}
               >
                 Prev
               </button>
               <button
+                className="pagination-btn"
                 onClick={() => handlePageChangePinned(currentPagePinned + 1)}
                 disabled={indexOfLastPinnedNote >= pinnedNotes.length}
               >
@@ -161,14 +163,16 @@ function App() {
         {/* Pagination buttons for unpinned notes */}
         <div>
           {notes.length > itemsPerPageUnpinned && (
-            <div>
+            <div className="btn-container">
               <button
+                className="pagination-btn"
                 onClick={() => handlePageChangeUnpinned(currentPageUnpinned - 1)}
                 disabled={currentPageUnpinned === 1}
               >
                 Prev
               </button>
               <button
+                className="pagination-btn"
                 onClick={() => handlePageChangeUnpinned(currentPageUnpinned + 1)}
                 disabled={indexOfLastUnpinnedNote >= notes.length}
               >
@@ -178,6 +182,8 @@ function App() {
           )}
         </div>
       </div>}
+
+
 
       <Footer />
 
